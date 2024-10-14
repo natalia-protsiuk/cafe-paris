@@ -11,13 +11,13 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+   
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
@@ -25,3 +25,36 @@ body {
     text-wrap: balance;
   }
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lora', serif;
+}
+
+
+.smalltitle{
+  color:#0e7490;
+  position:relative;
+  padding:0 16px;
+  display:inline-block;}
+  
+.smalltitle:before, .smalltitle:after{content:'';
+  position:absolute;
+  width:10px;
+  height:2px;
+  background:#0e7490;
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  }
+  .smalltitle:after{left:auto;
+  right:0;}
+
+   .smalltitle{color:#0e7490;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.15em;
+    margin-bottom:32px;
+    text-transform:uppercase;
+    }
