@@ -1,8 +1,12 @@
+import Header from "./components/Header";
+import Hero from "./components/Hero";
 import FoodMenu from "./components/Menu";
 
 export default function Home() {
   return (
     <main>
+      <Header />
+      <Hero />
       <section className="min-h-screen flex justify-center items-center bg-white">
         <h1>Welcome to Caverta</h1>
         <p>Experience fine dining with a seasonal menu.</p>

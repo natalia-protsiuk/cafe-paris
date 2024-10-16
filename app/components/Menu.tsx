@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, memo } from "react";
+import React, { useState, useEffect, memo } from "react";
 
 interface FoodMenuItemProps {
   id: number;
@@ -56,7 +56,6 @@ const menuItems: FoodMenuItemProps[] = [
     description: "Mascarpone, Coffee, Cocoa",
     category: "Desserts",
   },
-  // Add more items as needed
 ];
 
 const FoodMenuTitle = memo(() => (
@@ -90,15 +89,25 @@ const categories = ["Starters", "Main Course", "Soups", "Desserts"];
 
 const FoodMenu: React.FC<FoodMenuProps> = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("Starters");
-
-  const filteredItems = menuItems.filter(
-    (item) => item.category === selectedCategory
+  const [isFadingOut, setIsFadingOut] = useState<boolean>(false);
+  const [filteredItems, setFilteredItems] = useState(
+    menuItems.filter((item) => item.category === "Starters")
   );
+
+  const handleCategoryChange = (category: string) => {
+    setIsFadingOut(true);
+
+    setTimeout(() => {
+      setSelectedCategory(category);
+      setFilteredItems(menuItems.filter((item) => item.category === category));
+      setIsFadingOut(false);
+    }, 500);
+  };
 
   return (
     <section className="container mx-auto bg-white">
       <FoodMenuTitle />
-      {/* Tabs */}
+
       <div className="flex justify-center mb-8">
         {categories.map((category) => (
           <button
@@ -106,13 +115,18 @@ const FoodMenu: React.FC<FoodMenuProps> = () => {
             className={`px-4 py-2 mx-2 uppercase ${
               selectedCategory === category ? "text-cyan-700" : "text-gray-800"
             }`}
-            onClick={() => setSelectedCategory(category)}
+            onClick={() => handleCategoryChange(category)}
           >
             {category}
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-2 gap-x-[54px]">
+
+      <div
+        className={`grid grid-cols-2 gap-x-[54px] transition-opacity duration-500 ${
+          isFadingOut ? "opacity-0" : "opacity-100"
+        }`}
+      >
         {filteredItems.length > 0 ? (
           filteredItems.map((item) => (
             <FoodMenuItem key={item.id} item={item} />
