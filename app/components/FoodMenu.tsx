@@ -107,7 +107,7 @@ const FoodMenu: React.FC<FoodMenuProps> = () => {
   };
 
   return (
-    <section className="container mx-auto">
+    <section className="container mx-auto bg-white">
       <FoodMenuTitle />
 
       <div className="flex justify-center mb-8">

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,14 +30,13 @@ const Header: React.FC = () => {
       <div className="container mx-auto flex justify-between items-center py-4">
         <div className="flex items-center space-x-2">
           <Link href="/">
-            Café Paris
-            {/* <img
-              src="/images/Café Paris-logo.png"
+            <Image
+              src="/images/logo-cafe-paris.png"
+              width={93}
+              height={45}
               alt="Café Paris Logo"
-              className="h-8"
-            /> */}
+            />
           </Link>
-          <span className="italic text-sm text-white">fine dining</span>
         </div>
 
         <nav className="hidden md:flex space-x-8">
