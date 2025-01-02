@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, memo } from "react";
+import React, { useState, memo } from "react";
 
 interface FoodMenuItemProps {
   id: number;
@@ -70,6 +70,8 @@ const FoodMenuTitle = memo(() => (
   </div>
 ));
 
+FoodMenuTitle.displayName = "FoodMenuTitle";
+
 const FoodMenuItem: React.FC<{ item: FoodMenuItemProps }> = ({ item }) => (
   <article
     className="text-base mb-6 pb-6 border-b border-dotted border-gray-400"
@@ -105,7 +107,7 @@ const FoodMenu: React.FC<FoodMenuProps> = () => {
   };
 
   return (
-    <section className="container mx-auto">
+    <section className="container mx-auto bg-white">
       <FoodMenuTitle />
 
       <div className="flex justify-center mb-8">

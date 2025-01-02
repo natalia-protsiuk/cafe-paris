@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundAttachment: {
+        'fixed': 'fixed',
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
