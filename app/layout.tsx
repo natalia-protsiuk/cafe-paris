@@ -18,7 +18,7 @@ export default function RootLayout({
         <div
           className="fixed top-0 left-0 w-full min-h-screen bg-fixed bg-cover bg-center z-[-1]"
           style={{
-            backgroundImage: "url('../images/flour-chocolate.jpg')",
+            backgroundImage: "url('../images/cafe-paris-background.jpg')",
           }}
         ></div>
 

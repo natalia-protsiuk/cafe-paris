@@ -1,8 +1,8 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import FoodMenu from "./components/Menu";
+import FoodMenu from "./components/FoodMenu";
 
-export default function Home() {
+function Home() {
   return (
     <main>
       <Header />
@@ -31,3 +31,5 @@ export default function Home() {
     </main>
   );
 }
+
+export default Home;

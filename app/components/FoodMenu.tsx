@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, memo } from "react";
+import React, { useState, memo } from "react";
 
 interface FoodMenuItemProps {
   id: number;
@@ -69,6 +69,8 @@ const FoodMenuTitle = memo(() => (
     </div>
   </div>
 ));
+
+FoodMenuTitle.displayName = "FoodMenuTitle";
 
 const FoodMenuItem: React.FC<{ item: FoodMenuItemProps }> = ({ item }) => (
   <article
