@@ -16,9 +16,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div
-          className="fixed top-0 left-0 w-full min-h-screen bg-fixed bg-cover bg-center z-[-1]"
+          className="fixed top-0 left-0 w-full min-h-screen bg-fixed bg-cover bg-center z-[-1] hidden sm:block"
           style={{
             backgroundImage: "url('../images/cafe-paris-background.jpg')",
+            backgroundBlendMode: "overlay",
+            backgroundColor: "rgba(0, 0, 0, 0.4)",
           }}
         ></div>
 

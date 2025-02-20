@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,7 +28,7 @@ const Header: React.FC = () => {
         isScrolled ? "bg-black fixed shadow-lg" : "bg-transparent absolute"
       } top-0 left-0 w-full z-20 transition-all duration-500 ease-in-out`}
     >
-      <div className="container mx-auto flex justify-between items-center py-4">
+      <div className="container mx-auto flex justify-between items-center py-4 sm:px-6">
         <div className="flex items-center space-x-2">
           <Link href="/">
             <Image
@@ -47,27 +48,17 @@ const Header: React.FC = () => {
           </Link>
           <Link href="/menu">
             <span className="hover:text-gray-400 cursor-pointer text-white">
-              Menu
+              Головне меню
             </span>
           </Link>
           <Link href="/pages">
             <span className="hover:text-gray-400 cursor-pointer text-white">
-              Pages
+              Банкетне меню
             </span>
           </Link>
           <Link href="/reservation">
             <span className="hover:text-gray-400 cursor-pointer text-white">
-              Reservation
-            </span>
-          </Link>
-          <Link href="/blog">
-            <span className="hover:text-gray-400 cursor-pointer text-white">
-              Blog
-            </span>
-          </Link>
-          <Link href="/team">
-            <span className="hover:text-gray-400 cursor-pointer text-white">
-              Team
+              Напої
             </span>
           </Link>
           <Link href="/gallery">
@@ -75,33 +66,15 @@ const Header: React.FC = () => {
               Gallery
             </span>
           </Link>
-          <Link href="/contact">
-            <span className="hover:text-gray-400 cursor-pointer text-white">
-              Contact
-            </span>
-          </Link>
         </nav>
 
         <div className="flex items-center space-x-4">
-          <Link href="#">
-            <span className="hover:text-gray-400 cursor-pointer text-white">
-              <i className="fab fa-facebook-f"></i>
-            </span>
+          <Link href="#" className="text-gray-400 hover:text-white">
+            <FaFacebookF />
           </Link>
-          <Link href="#">
-            <span className="hover:text-gray-400 cursor-pointer text-white">
-              <i className="fab fa-twitter"></i>
-            </span>
-          </Link>
-          <Link href="#">
-            <span className="hover:text-gray-400 cursor-pointer text-white">
-              <i className="fab fa-tripadvisor"></i>
-            </span>
-          </Link>
-          <Link href="#">
-            <span className="hover:text-gray-400 cursor-pointer text-white">
-              <i className="fab fa-instagram"></i>
-            </span>
+
+          <Link href="#" className="text-gray-400 hover:text-white">
+            <FaInstagram />
           </Link>
 
           <Link href="/reservation">
