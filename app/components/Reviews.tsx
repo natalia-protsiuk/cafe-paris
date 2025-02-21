@@ -56,7 +56,7 @@ export default function ReviewsCarousel() {
               }`}
             >
               <p className="text-lg italic leading-relaxed max-w-3xl">
-                "{review.text}"
+                &quotM;{review.text}&quotM;
               </p>
               <div className="mt-6">
                 <div className="uppercase font-semibold">{review.author}</div>
