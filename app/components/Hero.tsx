@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 const images = [
   { src: "/images/table-with-glasses.jpg", alt: "Elegant restaurant interior" },
-  { src: "/images/hero2.jpg", alt: "Delicious gourmet dish" },
+  { src: "/images/flour-chocolate.jpg", alt: "Delicious gourmet dish" },
 ];
 
 const Hero: React.FC = () => {

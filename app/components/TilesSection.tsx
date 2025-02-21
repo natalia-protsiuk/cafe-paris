@@ -1,7 +1,7 @@
 const tiles = [
-  { title: "Головне меню", image: "/menu.jpg", link: "#" },
-  { title: "Банкетне меню", image: "/reservation.jpg", link: "#" },
-  { title: "Напої", image: "/news.jpg", link: "#" },
+  { title: "Головне меню", image: "", link: "#" },
+  { title: "Банкетне меню", image: "", link: "#" },
+  { title: "Напої", image: "", link: "#" },
 ];
 
 export default function TilesSection() {
