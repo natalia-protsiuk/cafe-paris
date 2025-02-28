@@ -1,121 +1,84 @@
 "use client";
-import React, { useState, memo } from "react";
+import { useEffect, useState } from "react";
+
+const SHEET_ID =
+  process.env.GOOGLE_SHEET_ID || "1sHgLsCjBU4ooSqXTf0qjJ3djGt1wZcdxOu9864mOPMs";
+const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_API_KEY;
+const RANGE = "Sheet1!A2:D";
 
 interface FoodMenuItemProps {
   id: number;
   name: string;
   price: number;
   description: string;
-  category: "Starters" | "Main Course" | "Soups" | "Desserts";
+  category: string;
 }
 
-interface FoodMenuProps {
-  menuItems: FoodMenuItemProps[];
-}
+export default function FoodMenu() {
+  const [menuItems, setMenuItems] = useState<FoodMenuItemProps[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState("Starters");
+  const [isFadingOut, setIsFadingOut] = useState(false);
 
-const menuItems: FoodMenuItemProps[] = [
-  {
-    id: 1,
-    name: "Tomato Bruschetta",
-    price: 4.0,
-    description: "Tomatoes, Olive Oil, Cheese",
-    category: "Starters",
-  },
-  {
-    id: 2,
-    name: "Pasta Carbonara",
-    price: 8.5,
-    description: "Pasta, Egg, Pancetta, Parmesan",
-    category: "Main Course",
-  },
-  {
-    id: 3,
-    name: "Margherita Pizza",
-    price: 7.0,
-    description: "Tomato, Mozzarella, Basil",
-    category: "Main Course",
-  },
-  {
-    id: 4,
-    name: "Caesar Salad",
-    price: 5.5,
-    description: "Romaine, Croutons, Parmesan, Caesar Dressing",
-    category: "Starters",
-  },
-  {
-    id: 5,
-    name: "Minestrone Soup",
-    price: 6.0,
-    description: "Vegetables, Beans, Pasta",
-    category: "Soups",
-  },
-  {
-    id: 6,
-    name: "Tiramisu",
-    price: 4.5,
-    description: "Mascarpone, Coffee, Cocoa",
-    category: "Desserts",
-  },
-];
+  // Fetch data from Google Sheets
+  useEffect(() => {
+    fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.values) {
+          const formattedData = data.values.map(
+            (row: string[], index: number) => {
+              const [name, price, description, category] = row;
+              return {
+                id: index + 1,
+                name,
+                price: parseFloat(price),
+                description,
+                category,
+              };
+            }
+          );
+          setMenuItems(formattedData);
+        }
+      })
+      .catch((error) => console.error("Error fetching menu data:", error));
+  }, []);
 
-const FoodMenuTitle = memo(() => (
-  <div className="text-center mb-8">
-    <div className="smalltitle text-cyan-700 mb-4">Discover</div>
-    <h2 className="text-5xl mb-12">Menu a la Carte</h2>
-    <div className="w-1/2 mx-auto">
-      Explore texture, color and of course the ultimate tastes with our menu of
-      the season. All the ingredients are fresh and carefully selected by our
-      chefs. Enjoy an extraordinary dining experience.
-    </div>
-  </div>
-));
-
-FoodMenuTitle.displayName = "FoodMenuTitle";
-
-const FoodMenuItem: React.FC<{ item: FoodMenuItemProps }> = ({ item }) => (
-  <article
-    className="text-base mb-6 pb-6 border-b border-dotted border-gray-400"
-    aria-labelledby={`menu-item-${item.id}`}
-  >
-    <h4 className="relative text-[21px]" id={`menu-item-${item.id}`}>
-      <span>{item.name}</span>
-      <span className="absolute top-0 right-0">${item.price.toFixed(2)}</span>
-    </h4>
-    <p className="text-sm italic text-gray-500">
-      {item.description || "No description available."}
-    </p>
-  </article>
-);
-
-const categories = ["Starters", "Main Course", "Soups", "Desserts"];
-
-const FoodMenu: React.FC<FoodMenuProps> = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>("Starters");
-  const [isFadingOut, setIsFadingOut] = useState<boolean>(false);
-  const [filteredItems, setFilteredItems] = useState(
-    menuItems.filter((item) => item.category === "Starters")
-  );
+  const categories = ["Starters", "Main Course", "Soups", "Desserts"];
 
   const handleCategoryChange = (category: string) => {
     setIsFadingOut(true);
-
     setTimeout(() => {
       setSelectedCategory(category);
-      setFilteredItems(menuItems.filter((item) => item.category === category));
       setIsFadingOut(false);
-    }, 500);
+    }, 300);
   };
 
   return (
-    <section className="container mx-auto bg-white">
-      <FoodMenuTitle />
+    <section className="container mx-auto px-4 lg:px-16 py-12">
+      <div className="text-center mb-8 px-4">
+        <div className="text-cyan-700 uppercase tracking-widest mb-2 text-sm">
+          — Discover —
+        </div>
+        <h2 className="text-3xl md:text-5xl font-semibold mb-4">
+          Menu a la Carte
+        </h2>
+        <p className="max-w-2xl mx-auto text-gray-600 text-sm md:text-base">
+          Explore texture, color, and of course the ultimate tastes with our
+          menu of the season.
+        </p>
+      </div>
 
-      <div className="flex justify-center mb-8">
+      {/* Category Buttons */}
+      <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-6">
         {categories.map((category) => (
           <button
             key={category}
-            className={`px-4 py-2 mx-2 uppercase ${
-              selectedCategory === category ? "text-cyan-700" : "text-gray-800"
+            className={`px-4 py-2 text-sm md:text-base uppercase border border-gray-400 rounded-lg transition-all ${
+              selectedCategory === category
+                ? "bg-cyan-700 text-white"
+                : "text-gray-800 hover:bg-gray-100"
             }`}
             onClick={() => handleCategoryChange(category)}
           >
@@ -124,21 +87,31 @@ const FoodMenu: React.FC<FoodMenuProps> = () => {
         ))}
       </div>
 
+      {/* Menu Items Grid */}
       <div
-        className={`grid grid-cols-2 gap-x-[54px] transition-opacity duration-500 ${
+        className={`grid grid-cols-1 md:grid-cols-2 gap-8 transition-opacity duration-300 ${
           isFadingOut ? "opacity-0" : "opacity-100"
         }`}
       >
-        {filteredItems.length > 0 ? (
-          filteredItems.map((item) => (
-            <FoodMenuItem key={item.id} item={item} />
-          ))
-        ) : (
-          <p>No items available for {selectedCategory}</p>
-        )}
+        {menuItems
+          .filter((item) => item.category === selectedCategory)
+          .map((item) => (
+            <article
+              key={item.id}
+              className="text-base pb-6 border-b border-dotted border-gray-400 flex justify-between items-start w-full"
+            >
+              <div>
+                <h4 className="text-lg font-semibold">{item.name}</h4>
+                <p className="text-sm italic text-gray-500">
+                  {item.description || "No description available."}
+                </p>
+              </div>
+              <span className="text-lg font-bold">
+                ${item.price.toFixed(2)}
+              </span>
+            </article>
+          ))}
       </div>
     </section>
   );
-};
-
-export default FoodMenu;
+}

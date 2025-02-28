@@ -20,7 +20,7 @@ export default function RootLayout({
           style={{
             backgroundImage: "url('../images/cafe-paris-background.jpg')",
             backgroundBlendMode: "overlay",
-            backgroundColor: "rgba(0, 0, 0, 0.4)",
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
           }}
         ></div>
 

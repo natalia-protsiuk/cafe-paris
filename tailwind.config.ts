@@ -9,14 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        sm: '420px', 
-        md: '768px', 
-        lg: '1024px',
-        xl: '1280px',
-        '2xl': '1536px',
+        sm: "460px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
       },
       backgroundAttachment: {
-        'fixed': 'fixed',
+        fixed: "fixed",
       },
       colors: {
         background: "var(--background)",

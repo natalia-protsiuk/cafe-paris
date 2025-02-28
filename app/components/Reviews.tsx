@@ -37,7 +37,7 @@ export default function ReviewsCarousel() {
   };
 
   return (
-    <section className="relative w-full py-16 bg-black text-white">
+    <section className="relative w-full py-16 text-white">
       <div className="container mx-auto text-center max-w-4xl px-6">
         <span className="uppercase text-sm tracking-wide mb-2 block">
           — TESTIMONIALS —
@@ -47,7 +47,7 @@ export default function ReviewsCarousel() {
         </h2>
 
         {/* Reviews */}
-        <div className="relative h-48 md:h-56">
+        <div className="relative h-[100] md:h-56">
           {reviews.map((review, index) => (
             <div
               key={index}
