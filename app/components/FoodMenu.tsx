@@ -16,7 +16,7 @@ interface FoodMenuItemProps {
 
 export default function FoodMenu() {
   const [menuItems, setMenuItems] = useState<FoodMenuItemProps[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState("Starters");
+  const [selectedCategory, setSelectedCategory] = useState("Закуски");
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   // Fetch data from Google Sheets
@@ -45,7 +45,15 @@ export default function FoodMenu() {
       .catch((error) => console.error("Error fetching menu data:", error));
   }, []);
 
-  const categories = ["Starters", "Main Course", "Soups", "Desserts"];
+  const categories = [
+    "Закуски",
+    "Супи",
+    "Салати",
+    "Курка",
+    "Свинина",
+    "Гарніри",
+    "Десерти",
+  ];
 
   const handleCategoryChange = (category: string) => {
     setIsFadingOut(true);
@@ -106,9 +114,7 @@ export default function FoodMenu() {
                   {item.description || "No description available."}
                 </p>
               </div>
-              <span className="text-lg font-bold">
-                ${item.price.toFixed(2)}
-              </span>
+              <span className="text-lg font-bold">{item.price} грн</span>
             </article>
           ))}
       </div>

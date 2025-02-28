@@ -49,7 +49,7 @@ function Home() {
       </section>
 
       <section className="min-h-screen flex justify-center items-center bg-white">
-        <FoodMenu menuItems={[]} />
+        <FoodMenu />
       </section>
       <Footer />
     </main>
