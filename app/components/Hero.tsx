@@ -1,9 +1,10 @@
 "use client";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 const images = [
   { src: "/images/table-with-glasses.jpg", alt: "Elegant restaurant interior" },
-  { src: "/images/flour-chocolate.jpg", alt: "Delicious gourmet dish" },
+  { src: "/images/hero-image.jpg", alt: "Delicious gourmet dish" },
 ];
 
 const Hero: React.FC = () => {
@@ -39,31 +40,27 @@ const Hero: React.FC = () => {
         </div>
       ))}
 
-      {/* Text Overlay */}
-      <div className="absolute inset-0 flex flex-col justify-center items-center text-white z-10 bg-black bg-opacity-50">
+      <div className="absolute inset-0 flex flex-col justify-center items-center text-white z-10 bg-black bg-opacity-40">
         <div className="container mx-auto text-center">
           <div className="text-white mb-4 uppercase">Ласкаво просимо</div>
         </div>
         <h1 className="text-8xl font-bold mb-4">Café Paris</h1>
         <p className="text-2xl font-thin text-center max-w-6xl">
-          {/* Спробуйте нашу авторську кухню, яка поєднує
-          <br />
-          вишукані смаки та сучасні тенденції! */}
           Ми працюємо більше ніж 20 років, створюючи незабутні гастрономічні
           враження для наших гостей.
           <br />
           Наш шеф-кухар майстерно поєднує традиції кулінарного мистецтва з
           сучасними смаками, додаючи авторський підхід до кожної страви.
           <br />
-          {/* Ми пишаємося тим, що кожен наш рецепт унікальний, а атмосфера
-          ресторану створює ідеальне місце для ваших особливих моментів. */}
         </p>
-        <button className="mt-8 px-6 py-3 bg-white text-black font-bold hover:bg-gray-300 transition">
+        <Link
+          href="#contact"
+          className="mt-8 px-6 py-3 bg-white text-black font-bold hover:bg-gray-300 transition"
+        >
           Book a Table
-        </button>
+        </Link>
       </div>
 
-      {/* Dots Navigation */}
       <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-2 z-10">
         {images.map((_, index) => (
           <button

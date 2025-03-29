@@ -41,27 +41,27 @@ const Header: React.FC = () => {
         </div>
 
         <nav className="hidden md:flex space-x-8">
-          <Link href="/">
+          <Link href="#home">
             <span className="hover:text-gray-400 cursor-pointer text-white">
               Home
             </span>
           </Link>
-          <Link href="/menu">
+          <Link href="#menu">
             <span className="hover:text-gray-400 cursor-pointer text-white">
               Головне меню
             </span>
           </Link>
-          <Link href="/pages">
+          <Link href="#menu">
             <span className="hover:text-gray-400 cursor-pointer text-white">
               Банкетне меню
             </span>
           </Link>
-          <Link href="/reservation">
+          <Link href="#menu">
             <span className="hover:text-gray-400 cursor-pointer text-white">
               Напої
             </span>
           </Link>
-          <Link href="/gallery">
+          <Link href="#gallery">
             <span className="hover:text-gray-400 cursor-pointer text-white">
               Gallery
             </span>
@@ -69,15 +69,21 @@ const Header: React.FC = () => {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <Link href="#" className="text-gray-400 hover:text-white">
+          <Link
+            href="https://www.facebook.com/CafeParisNikolaev"
+            className="text-gray-400 hover:text-white"
+          >
             <FaFacebookF />
           </Link>
 
-          <Link href="#" className="text-gray-400 hover:text-white">
+          <Link
+            href="https://www.instagram.com/cafe_paris_niko"
+            className="text-gray-400 hover:text-white"
+          >
             <FaInstagram />
           </Link>
 
-          <Link href="/reservation">
+          <Link href="#contact">
             <span className="ml-4 px-4 py-2 border-2 border-white hover:border-gray-400 text-white hover:text-gray-400 transition cursor-pointer">
               Book a Table
             </span>

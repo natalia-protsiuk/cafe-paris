@@ -1,18 +1,61 @@
-const tiles = [
-  { title: "Головне меню", image: "", link: "#" },
-  { title: "Банкетне меню", image: "", link: "#" },
-  { title: "Напої", image: "", link: "#" },
+// const tiles = [
+//   { title: "Головне меню", image: "/images/main-menu.jpg", link: "#" },
+//   { title: "Банкетне меню", image: "/images/banquet.jpg", link: "#" },
+//   { title: "Напої", image: "/images/drinks-menu.jpg", link: "#" },
+// ];
+
+// export default function TilesSection() {
+//   return (
+//     <section className="container mx-auto px-6 py-12">
+//       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+//         {tiles.map((tile, index) => (
+//           <a
+//             key={index}
+//             href={tile.link}
+//             className="relative group w-full h-60 md:h-72 lg:h-80 block"
+//           >
+//             <div
+//               className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+//               style={{ backgroundImage: `url(${tile.image})` }}
+//             />
+//             <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 transition-all duration-300"></div>
+//             <span className="absolute inset-0 flex items-center justify-center text-white font-semibold text-lg uppercase tracking-wide">
+//               — {tile.title} —
+//             </span>
+//           </a>
+//         ))}
+//       </div>
+//     </section>
+//   );
+// }
+
+"use client";
+
+interface Tile {
+  title: string;
+  image: string;
+  value: string; // 'main' | 'banquet' | 'drinks'
+}
+
+const tiles: Tile[] = [
+  { title: "Головне меню", image: "/images/main-menu.jpg", value: "main" },
+  { title: "Банкетне меню", image: "/images/banquet.jpg", value: "banquet" },
+  { title: "Напої", image: "/images/drinks-menu.jpg", value: "drinks" },
 ];
 
-export default function TilesSection() {
+interface TilesSectionProps {
+  onTileClick: (menu: string) => void;
+}
+
+export default function TilesSection({ onTileClick }: TilesSectionProps) {
   return (
     <section className="container mx-auto px-6 py-12">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {tiles.map((tile, index) => (
-          <a
+          <button
             key={index}
-            href={tile.link}
-            className="relative group w-full h-60 md:h-72 lg:h-80 block"
+            onClick={() => onTileClick(tile.value)}
+            className="relative group w-full h-60 md:h-72 lg:h-80 block focus:outline-none"
           >
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
@@ -22,7 +65,7 @@ export default function TilesSection() {
             <span className="absolute inset-0 flex items-center justify-center text-white font-semibold text-lg uppercase tracking-wide">
               — {tile.title} —
             </span>
-          </a>
+          </button>
         ))}
       </div>
     </section>

@@ -1,15 +1,32 @@
+"use client";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import FoodMenu from "./components/FoodMenu";
 import Footer from "./components/Footer";
 import TilesSection from "./components/TilesSection";
 import Reviews from "./components/Reviews";
+import Gallery from "./components/Gallery";
+import FoodMenu from "./components/FoodMenu";
+import Contact from "./components/Contact";
+import { useRef, useState } from "react";
 
 function Home() {
+  const [selectedMenu, setSelectedMenu] = useState<string | null>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const handleTileClick = (menu: string) => {
+    setSelectedMenu(menu);
+
+    // Scroll to the menu section
+    setTimeout(() => {
+      menuRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  };
   return (
     <main>
-      <Header />
-      <Hero />
+      <section id="home">
+        <Header />
+        <Hero />
+      </section>
       <section className="bg-white py-11">
         <div className="container mx-auto text-center">
           <div className="smalltitle text-white mb-4">Меню</div>
@@ -21,35 +38,30 @@ function Home() {
           <p>
             Якщо ви не знаєте, як найкраще скласти меню для великої кількості
             гостей, ми з радістю підкажемо, пояснимо та підберемо варіанти, які
-            зроблять ваше свято чи особливу подію незабутньою.{" "}
+            зроблять ваше свято чи особливу подію незабутньою.
           </p>
           <p>
             Ми часто додаємо новинки до нашого меню, але також завжди залишаємо
-            ваші улюблені та традиційні страви.{" "}
+            ваші улюблені та традиційні страви.
           </p>
         </div>
-        <TilesSection />
       </section>
-      <Reviews />
-      <section className="min-h-screen flex justify-center items-center bg-white">
-        <div className="container mx-auto text-center">
-          <div className="smalltitle text-white mb-4">Welcome</div>
-          <h1>Dining at Café Paris</h1>
-          <p>Experience fine dining with a seasonal menu.</p>
+      <section id="menu" className="flex justify-center items-center bg-white">
+        <TilesSection onTileClick={handleTileClick} />
+      </section>
+      {selectedMenu && (
+        <div className="bg-white" ref={menuRef}>
+          <FoodMenu menuType={selectedMenu} />
         </div>
+      )}
+      <section id="reviews">
+        <Reviews />
       </section>
-
-      <section className="min-h-[50vh] flex justify-center items-center bg-transparent text-white">
-        <div className="container mx-auto text-center">
-          <div className="smalltitle text-white mb-4">Завітайте до нас</div>
-          <h2 className="text-5xl mb-12">
-            Mи створюємо справжню насолоду смаку!
-          </h2>
-        </div>
+      <section id="gallery" className="min-h-screen  bg-white">
+        <Gallery />
       </section>
-
-      <section className="min-h-screen flex justify-center items-center bg-white">
-        <FoodMenu />
+      <section id="contact">
+        <Contact />
       </section>
       <Footer />
     </main>

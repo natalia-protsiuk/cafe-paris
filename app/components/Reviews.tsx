@@ -3,17 +3,22 @@ import React, { useState, useEffect } from "react";
 
 const reviews = [
   {
-    text: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Itaque earum rerum hic tenetur a sapiente delectus. Accusantium doloremque.",
+    text: "Кафе 'Париж' – це найпрекрасніший заклад, інтер'єр якого розроблений з любов’ю та душевністю, а страви – надзвичайно смачні. І все це завдяки господині, яка має найкращі людські якості та втілює їх для чудового відпочинку у своєму закладі. Велике спасибі, Людочко і Танюшко, за ваш майстер-клас. Якби ви були в Європі, то стали б найуспішнішими майстрами своєї справи. Часто згадую, перебуваючи в Європі, ті незабутні свята, ювілеї, які ми святкували у вас разом із сім’ями. Все було дуже смачно, оформлено на вищому рівні – чистота, затишок, музика. Це не забудеться ніколи.Велике вам людське спасибі. Сподіваюся, що незабаром ми знову будемо у вашому прекрасному закладі святкувати День перемоги України! Рекомендую всім це чудове кафе.",
     author: "Marie Smith",
     position: "The Smiths",
   },
   {
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    text: "Все було дуже гарно, затишно і найголовніше – смачно! Подача страв креативна та оригінальна! Дякуємо.",
     author: "John Doe",
     position: "Gourmet Critic",
   },
   {
-    text: "Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    text: "Друзі, рекомендую. Завітайте до ресторану. Все на найвищому рівні. Є окрема зала, що дуже зручно для тих, хто з дітками. Кухня смачна і якісна. Персонал дуже ввічливий. Нам все дуже сподобалося!",
+    author: "Anna Williams",
+    position: "Food Blogger",
+  },
+  {
+    text: "Затишне, казкове місце з прекрасним сервісом. Тому обрала саме ваше кафе для своєї новорічної вечері. У серці залишаться теплі спогади надовго. Дякую. З наступаючим Новим роком і Різдвом усіх. Нехай у Новому році у вас буде багато вдячних клієнтів.",
     author: "Anna Williams",
     position: "Food Blogger",
   },
@@ -39,15 +44,13 @@ export default function ReviewsCarousel() {
   return (
     <section className="relative w-full py-16 text-white">
       <div className="container mx-auto text-center max-w-4xl px-6">
-        <span className="uppercase text-sm tracking-wide mb-2 block">
+        {/* <span className="uppercase text-sm tracking-wide mb-2 block">
           — TESTIMONIALS —
-        </span>
-        <h2 className="text-4xl md:text-5xl font-semibold mb-6">
-          What Clients Say
-        </h2>
+        </span> */}
+        <h2 className="text-4xl md:text-5xl font-semibold mb-6">Відгуки</h2>
 
         {/* Reviews */}
-        <div className="relative h-[100] md:h-56">
+        <div className="relative h-[200] md:h-56">
           {reviews.map((review, index) => (
             <div
               key={index}
@@ -56,12 +59,12 @@ export default function ReviewsCarousel() {
               }`}
             >
               <p className="text-lg italic leading-relaxed max-w-3xl">
-                &quotM;{review.text}&quotM;
+                `&quot;`{review.text}`&quot;`
               </p>
-              <div className="mt-6">
+              {/* <div className="mt-6">
                 <div className="uppercase font-semibold">{review.author}</div>
                 <div className="text-sm text-gray-400">{review.position}</div>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>
