@@ -1,3 +1,4 @@
+import Image from "next/image";
 const images = [
   "/images/gallery-8.jpg",
   "/images/gallery-6.jpg",
@@ -16,7 +17,7 @@ export default function Gallery() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {images.map((src, index) => (
           <div key={index} className="overflow-hidden  shadow-lg">
-            <img
+            <Image
               src={src}
               alt={`Gallery image ${index + 1}`}
               className="w-full h-[300] object-cover hover:scale-105 transition-transform duration-300"

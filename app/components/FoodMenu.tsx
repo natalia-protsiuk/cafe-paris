@@ -25,14 +25,13 @@ export default function FoodMenu({ menuType }: FoodMenuProps) {
   const [menuItems, setMenuItems] = useState<FoodMenuItemProps[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("Закуски");
   const [isFadingOut, setIsFadingOut] = useState(false);
-
-  const SHEET_ID =
-    process.env.GOOGLE_SHEET_ID ||
-    "1sHgLsCjBU4ooSqXTf0qjJ3djGt1wZcdxOu9864mOPMs";
-  const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_API_KEY;
-  const [loading, setLoading] = useState(true); // NEW
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
+    const SHEET_ID =
+      process.env.GOOGLE_SHEET_ID ||
+      "1sHgLsCjBU4ooSqXTf0qjJ3djGt1wZcdxOu9864mOPMs";
+    const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_API_KEY;
+
     const sheetInfo = menuSheetMap[menuType];
     if (!sheetInfo) return;
     setLoading(true);
