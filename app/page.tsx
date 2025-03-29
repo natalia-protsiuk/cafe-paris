@@ -10,7 +10,9 @@ import Contact from "./components/Contact";
 import { useRef, useState } from "react";
 
 function Home() {
-  const [selectedMenu, setSelectedMenu] = useState<string | null>(null);
+  const [selectedMenu, setSelectedMenu] = useState<
+    "main" | "banquet" | "drinks" | null
+  >(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const handleTileClick = (menu: string) => {
