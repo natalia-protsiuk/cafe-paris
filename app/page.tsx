@@ -8,14 +8,13 @@ import Gallery from "./components/Gallery";
 import FoodMenu from "./components/FoodMenu";
 import Contact from "./components/Contact";
 import { useRef, useState } from "react";
+import { FoodMenuType } from "./components/interfaces/food-menu.type";
 
 function Home() {
-  const [selectedMenu, setSelectedMenu] = useState<
-    "main" | "banquet" | "drinks" | null
-  >(null);
+  const [selectedMenu, setSelectedMenu] = useState<FoodMenuType | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const handleTileClick = (menu: string) => {
+  const handleTileClick = (menu: FoodMenuType) => {
     setSelectedMenu(menu);
 
     // Scroll to the menu section

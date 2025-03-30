@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import MenuSkeleton from "./MenuSkeleton";
+import { FoodMenuType } from "./interfaces/food-menu.type";
 
 interface FoodMenuItemProps {
   id: number;
@@ -12,7 +13,7 @@ interface FoodMenuItemProps {
 }
 
 interface FoodMenuProps {
-  menuType: "main" | "banquet" | "drinks";
+  menuType: FoodMenuType;
 }
 
 const menuSheetMap: Record<string, { tab: string; range: string }> = {
