@@ -20,25 +20,37 @@ interface FoodMenuProps {
 
 const menuSheetMap: Record<
   FoodMenuType,
-  { tab: string; range: string; orderKey: string; categoryIndex: number }
+  {
+    tab: string;
+    range: string;
+    orderKey: string;
+    categoryIndex: number;
+    descriptionIndex: number;
+    priceIndex?: number;
+  }
 > = {
   main: {
     tab: "main menu",
     range: "A:D",
     orderKey: "mainMenuOrder",
     categoryIndex: 3,
+    descriptionIndex: 2,
+    priceIndex: 1,
   },
   banquet: {
     tab: "banquet menu",
     range: "A:D",
     orderKey: "banquetMenuOrder",
     categoryIndex: 3,
+    descriptionIndex: 2,
+    priceIndex: 1,
   },
   drinks: {
     tab: "drinks menu",
     range: "A:F",
     orderKey: "drinksMenuOrder",
     categoryIndex: 5,
+    descriptionIndex: 4,
   },
 };
 
@@ -101,7 +113,7 @@ export default function FoodMenu({ menuType }: FoodMenuProps) {
           .slice(1)
           .map((row: string[], index: number) => {
             const name = row[0] || "";
-            const description = row[4] || "";
+            const description = row[sheetInfo.descriptionIndex] || "";
             const category = row[sheetInfo.categoryIndex] || "Other";
 
             if (menuType === "drinks") {
@@ -120,7 +132,7 @@ export default function FoodMenu({ menuType }: FoodMenuProps) {
                 name,
                 description,
                 category,
-                price: parseFloat(row[1]) || 0,
+                price: parseFloat(row[sheetInfo.priceIndex ?? 1]) || 0,
               };
             }
           });
