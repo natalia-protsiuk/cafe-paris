@@ -24,14 +24,13 @@ export default function Gallery() {
         {images.map((src, index) => (
           <div
             key={index}
-            className="min-w-[250px] md:min-w-0 snap-start shrink-0 md:shrink shadow-lg rounded overflow-hidden"
+            className="min-w-[250px] md:min-w-0 snap-start shrink-0 md:shrink shadow-lg rounded overflow-hidden aspect-square relative"
           >
             <Image
               src={src}
               alt={`Gallery image ${index + 1}`}
-              width={450}
-              height={450}
-              className="w-full h-[300px] object-cover hover:scale-105 transition-transform duration-300"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-300"
             />
           </div>
         ))}
