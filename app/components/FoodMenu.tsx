@@ -175,36 +175,110 @@ export default function FoodMenu({ menuType }: FoodMenuProps) {
     }, 300);
   };
 
+  // return loading ? (
+  //   <MenuSkeleton />
+  // ) : (
+  //   <section
+  //     id="menu-section"
+  //     className="container mx-auto px-4 lg:px-16 py-12"
+  //   >
+  //     <div className="text-center mb-8 px-4">
+  //       <div className="text-cyan-700 uppercase tracking-widest mb-2 text-sm">
+  //         — Discover —
+  //       </div>
+  //       <h2 className="text-3xl md:text-5xl font-semibold mb-4">
+  //         {menuType === "main"
+  //           ? "Menu à la Carte"
+  //           : menuType === "banquet"
+  //           ? "Banquet Menu"
+  //           : "Drinks Menu"}
+  //       </h2>
+  //       <p className="max-w-2xl mx-auto text-gray-600 text-sm md:text-base">
+  //         Explore texture, color, and of course the ultimate tastes with our
+  //         seasonal menu.
+  //       </p>
+  //     </div>
+
+  //     {categories.length > 0 && (
+  //       <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-6">
+  //         {categories.map((category) => (
+  //           <button
+  //             key={category}
+  //             className={`px-4 py-2 text-sm md:text-base uppercase border border-gray-400 rounded-lg transition-all ${
+  //               selectedCategory === category
+  //                 ? "bg-cyan-700 text-white"
+  //                 : "text-gray-800 hover:bg-gray-100"
+  //             }`}
+  //             onClick={() => handleCategoryChange(category)}
+  //           >
+  //             {category}
+  //           </button>
+  //         ))}
+  //       </div>
+  //     )}
+
+  //     <div
+  //       className={`grid grid-cols-1 md:grid-cols-2 gap-8 transition-opacity duration-300 ${
+  //         isFadingOut ? "opacity-0" : "opacity-100"
+  //       }`}
+  //     >
+  //       {menuItems
+  //         .filter((item) => item.category === selectedCategory)
+  //         .map((item) => (
+  //           <article
+  //             key={item.id}
+  //             className="text-base pb-6 border-b border-dotted border-gray-400 flex justify-between items-start w-full"
+  //           >
+  //             <div>
+  //               <h4 className="text-lg font-semibold">{item.name}</h4>
+  //               <p className="text-sm italic text-gray-500">
+  //                 {item.description}
+  //               </p>
+  //             </div>
+  //             {menuType === "drinks" ? (
+  //               <div className="text-right whitespace-nowrap text-sm font-semibold text-gray-800">
+  //                 {item.price50g && <div>50г: {item.price50g} грн</div>}
+  //                 {item.price100g && <div>100г: {item.price100g} грн</div>}
+  //                 {item.priceBottle && <div>Бут: {item.priceBottle} грн</div>}
+  //               </div>
+  //             ) : (
+  //               <span className="text-lg font-bold">{item.price} грн</span>
+  //             )}
+  //           </article>
+  //         ))}
+  //     </div>
+  //   </section>
+  // );
   return loading ? (
     <MenuSkeleton />
   ) : (
     <section
       id="menu-section"
-      className="container mx-auto px-4 lg:px-16 py-12"
+      className="container mx-auto px-4 sm:px-6 lg:px-16 py-8 sm:py-12"
     >
-      <div className="text-center mb-8 px-4">
-        <div className="text-cyan-700 uppercase tracking-widest mb-2 text-sm">
+      <div className="text-center mb-8 px-2 sm:px-4">
+        <div className="text-cyan-700 uppercase tracking-widest mb-2 text-xs sm:text-sm">
           — Discover —
         </div>
-        <h2 className="text-3xl md:text-5xl font-semibold mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold mb-4">
           {menuType === "main"
             ? "Menu à la Carte"
             : menuType === "banquet"
             ? "Banquet Menu"
             : "Drinks Menu"}
         </h2>
-        <p className="max-w-2xl mx-auto text-gray-600 text-sm md:text-base">
+        <p className="max-w-2xl mx-auto text-gray-600 text-sm sm:text-base px-2">
           Explore texture, color, and of course the ultimate tastes with our
           seasonal menu.
         </p>
       </div>
 
       {categories.length > 0 && (
-        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-6">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-6 px-2 sm:px-4">
           {categories.map((category) => (
             <button
               key={category}
-              className={`px-4 py-2 text-sm md:text-base uppercase border border-gray-400 rounded-lg transition-all ${
+              className={`px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm md:text-base uppercase border border-gray-400 rounded-md sm:rounded-lg transition-all ${
                 selectedCategory === category
                   ? "bg-cyan-700 text-white"
                   : "text-gray-800 hover:bg-gray-100"
@@ -218,7 +292,7 @@ export default function FoodMenu({ menuType }: FoodMenuProps) {
       )}
 
       <div
-        className={`grid grid-cols-1 md:grid-cols-2 gap-8 transition-opacity duration-300 ${
+        className={`grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 transition-opacity duration-300 ${
           isFadingOut ? "opacity-0" : "opacity-100"
         }`}
       >
@@ -227,22 +301,29 @@ export default function FoodMenu({ menuType }: FoodMenuProps) {
           .map((item) => (
             <article
               key={item.id}
-              className="text-base pb-6 border-b border-dotted border-gray-400 flex justify-between items-start w-full"
+              className=" text-base pb-6 border-b border-dotted border-gray-300 flex justify-between items-start w-full "
             >
-              <div>
-                <h4 className="text-lg font-semibold">{item.name}</h4>
-                <p className="text-sm italic text-gray-500">
-                  {item.description}
-                </p>
+              <div className="w-full">
+                <h4 className="text-base sm:text-lg font-semibold text-gray-800">
+                  {item.name}
+                </h4>
+                {item.description && (
+                  <p className="text-sm italic text-gray-500 mt-1">
+                    {item.description}
+                  </p>
+                )}
               </div>
+
               {menuType === "drinks" ? (
-                <div className="text-right whitespace-nowrap text-sm font-semibold text-gray-800">
+                <div className="text-right whitespace-nowrap text-sm sm:text-base font-semibold text-gray-800">
                   {item.price50g && <div>50г: {item.price50g} грн</div>}
                   {item.price100g && <div>100г: {item.price100g} грн</div>}
                   {item.priceBottle && <div>Бут: {item.priceBottle} грн</div>}
                 </div>
               ) : (
-                <span className="text-lg font-bold">{item.price} грн</span>
+                <span className="text-right text-sm sm:text-lg font-bold text-gray-900 min-w-[60px]">
+                  {item.price} грн
+                </span>
               )}
             </article>
           ))}

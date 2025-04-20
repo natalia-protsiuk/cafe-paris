@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 const images = [
   "/images/gallery-8.jpg",
   "/images/gallery-6.jpg",
@@ -13,16 +14,24 @@ const images = [
 
 export default function Gallery() {
   return (
-    <section className="container mx-auto px-6 py-12">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <section className="container mx-auto px-4 sm:px-6 py-12">
+      <h2 className="text-2xl sm:text-3xl font-semibold mb-8 text-center">
+        Gallery
+      </h2>
+
+      {/* Scrollable on mobile, grid on md+ */}
+      <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-smooth">
         {images.map((src, index) => (
-          <div key={index} className="overflow-hidden  shadow-lg">
+          <div
+            key={index}
+            className="min-w-[250px] md:min-w-0 snap-start shrink-0 md:shrink shadow-lg rounded overflow-hidden"
+          >
             <Image
               src={src}
               alt={`Gallery image ${index + 1}`}
               width={500}
               height={300}
-              className="w-full h-[300] object-cover hover:scale-105 transition-transform duration-300"
+              className="w-full h-[300px] object-cover hover:scale-105 transition-transform duration-300"
             />
           </div>
         ))}

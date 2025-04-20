@@ -28,25 +28,32 @@ function Home() {
         <Header />
         <Hero />
       </section>
-      <section className="bg-white py-11">
-        <div className="container mx-auto text-center">
+      <section className="bg-white py-10 sm:py-12">
+        <div className="container mx-auto text-center px-4 sm:px-6">
           <div className="smalltitle text-white mb-4">Меню</div>
-          <p>
-            Ми пропонуємо окреме меню для щоденних візитів і бaнкетів. Завдяки
-            нашому досвіду, ми завжди готові допомогти вам обрати ідеальні
-            страви для будь-якої події.
-          </p>
-          <p>
-            Якщо ви не знаєте, як найкраще скласти меню для великої кількості
-            гостей, ми з радістю підкажемо, пояснимо та підберемо варіанти, які
-            зроблять ваше свято чи особливу подію незабутньою.
-          </p>
-          <p>
-            Ми часто додаємо новинки до нашого меню, але також завжди залишаємо
-            ваші улюблені та традиційні страви.
-          </p>
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-6 text-gray-900">
+            Наші Пропозиції
+          </h2>
+
+          <div className="max-w-3xl mx-auto space-y-5 text-base sm:text-lg text-gray-700 leading-relaxed">
+            <p>
+              Ми пропонуємо окреме меню для щоденних візитів і бaнкетів. Завдяки
+              нашому досвіду, ми завжди готові допомогти вам обрати ідеальні
+              страви для будь-якої події.
+            </p>
+            <p>
+              Якщо ви не знаєте, як найкраще скласти меню для великої кількості
+              гостей, ми з радістю підкажемо, пояснимо та підберемо варіанти,
+              які зроблять ваше свято чи особливу подію незабутньою.
+            </p>
+            <p>
+              Ми часто додаємо новинки до нашого меню, але також завжди
+              залишаємо ваші улюблені та традиційні страви.
+            </p>
+          </div>
         </div>
       </section>
+
       <section id="menu" className="flex justify-center items-center bg-white">
         <TilesSection onTileClick={handleTileClick} />
       </section>
