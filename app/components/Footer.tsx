@@ -1,4 +1,5 @@
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { DateTime } from "luxon";
 
 export default function Footer() {
   return (
@@ -33,35 +34,13 @@ export default function Footer() {
             <p>Monday - Sunday</p>
             <p>10:00 - 23:00</p>
           </div>
-
-          {/* More Info */}
-          {/* <div>
-            <h3 className="text-white font-semibold uppercase mb-3">
-              More Info
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="hover:text-white">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white">
-                  Get in Touch
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white">
-                  Privacy Policy
-                </a>
-              </li>
-            </ul>
-          </div> */}
         </div>
 
         {/* Footer Bottom */}
         <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between">
-          <p className="text-gray-500 text-xs">Copyright © 2025, Café Paris.</p>
+          <p className="text-gray-500 text-xs">
+            Copyright © {DateTime.now().year}, Café Paris.
+          </p>
           {/* Social Icons */}
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a href="#" className="text-gray-400 hover:text-white">
