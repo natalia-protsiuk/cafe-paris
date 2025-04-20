@@ -65,7 +65,7 @@ function Home() {
       <section id="reviews">
         <Reviews />
       </section>
-      <section id="gallery" className="min-h-screen  bg-white">
+      <section id="gallery" className=" bg-white">
         <Gallery />
       </section>
       <section id="contact">

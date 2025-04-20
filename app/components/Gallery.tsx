@@ -29,8 +29,8 @@ export default function Gallery() {
             <Image
               src={src}
               alt={`Gallery image ${index + 1}`}
-              width={500}
-              height={300}
+              width={450}
+              height={450}
               className="w-full h-[300px] object-cover hover:scale-105 transition-transform duration-300"
             />
           </div>
