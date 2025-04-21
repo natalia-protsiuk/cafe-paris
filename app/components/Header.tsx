@@ -23,6 +23,7 @@ const Header: React.FC = () => {
     { id: "main", href: "#menu", label: "Головне меню" },
     { id: "banquet", href: "#menu", label: "Банкетне меню" },
     { id: "drinks", href: "#menu", label: "Напої" },
+    { id: "reviews", href: "#reviews", label: "Відгуки" },
     { id: "gallery", href: "#gallery", label: "Gallery" },
   ];
 

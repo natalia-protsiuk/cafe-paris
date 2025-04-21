@@ -39,7 +39,7 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between">
           <p className="text-gray-500 text-xs">
-            Copyright © {DateTime.now().year}, Café Paris.
+            Copyright © 2004 - {DateTime.now().year}, Café Paris.
           </p>
           {/* Social Icons */}
           <div className="flex space-x-4 mt-4 md:mt-0">
