@@ -43,10 +43,16 @@ export default function Footer() {
           </p>
           {/* Social Icons */}
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-white">
+            <a
+              href="https://www.facebook.com/CafeParisNikolaev"
+              className="text-gray-400 hover:text-white"
+            >
               <FaFacebookF />
             </a>
-            <a href="#" className="text-gray-400 hover:text-white">
+            <a
+              href="https://www.instagram.com/cafe_paris_niko"
+              className="text-gray-400 hover:text-white"
+            >
               <FaInstagram />
             </a>
           </div>
