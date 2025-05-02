@@ -19,12 +19,12 @@ const Header: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { id: "home", href: "#home", label: "Home" },
-    { id: "main", href: "#menu", label: "Головне меню" },
+    { id: "home", href: "#home", label: "Головна" },
+    { id: "main", href: "#menu", label: "Меню" },
     { id: "banquet", href: "#menu", label: "Банкетне меню" },
     { id: "drinks", href: "#menu", label: "Напої" },
     { id: "reviews", href: "#reviews", label: "Відгуки" },
-    { id: "gallery", href: "#gallery", label: "Gallery" },
+    { id: "gallery", href: "#gallery", label: "Фотогалерея" },
   ];
 
   return (
@@ -76,7 +76,7 @@ const Header: React.FC = () => {
           </Link>
           <Link href="#contact">
             <span className="ml-4 px-4 py-2 border-2 border-white hover:border-gray-400 text-white hover:text-gray-400 transition cursor-pointer text-sm lg:text-base">
-              Book a Table
+              Забронювати
             </span>
           </Link>
         </div>
@@ -121,7 +121,7 @@ const Header: React.FC = () => {
 
           <Link href="#contact">
             <span className="inline-block mt-4 px-4 py-2 border-2 border-white hover:border-gray-400 text-white hover:text-gray-400 transition cursor-pointer text-sm">
-              Book a Table
+              Забронювати
             </span>
           </Link>
         </div>

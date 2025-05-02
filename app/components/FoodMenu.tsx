@@ -27,6 +27,7 @@ const menuSheetMap: Record<
     categoryIndex: number;
     descriptionIndex: number;
     priceIndex?: number;
+    tabDescription: string;
   }
 > = {
   main: {
@@ -36,6 +37,8 @@ const menuSheetMap: Record<
     categoryIndex: 3,
     descriptionIndex: 2,
     priceIndex: 1,
+    tabDescription:
+      "Ми майстерно поєднуємо традиції та сучасність, щоб щодня дарувати вам яскраві смаки, кольори та текстури.",
   },
   banquet: {
     tab: "banquet menu",
@@ -44,6 +47,8 @@ const menuSheetMap: Record<
     categoryIndex: 3,
     descriptionIndex: 2,
     priceIndex: 1,
+    tabDescription:
+      "Ми маємо великий досвід у складанні меню для банкетів та весіль, яке вразить навіть найвибагливіших гостей. Наші авторські та найсучасніші страви дарують незабутні смакові враження, а ми допоможемо розрахувати кількість страв так, щоб кожен гість залишився задоволений та ситий. Банкети від 600 грн за людину - створіть ідеальне свято разом з нами!",
   },
   drinks: {
     tab: "drinks menu",
@@ -51,6 +56,8 @@ const menuSheetMap: Record<
     orderKey: "drinksMenuOrder",
     categoryIndex: 5,
     descriptionIndex: 4,
+    tabDescription:
+      "Широкий асортимент міцних напоїв для справжніх поціновувачів та надзвичайно смачна кава, яка підкорить ваш смак.",
   },
 };
 
@@ -175,80 +182,6 @@ export default function FoodMenu({ menuType }: FoodMenuProps) {
     }, 300);
   };
 
-  // return loading ? (
-  //   <MenuSkeleton />
-  // ) : (
-  //   <section
-  //     id="menu-section"
-  //     className="container mx-auto px-4 lg:px-16 py-12"
-  //   >
-  //     <div className="text-center mb-8 px-4">
-  //       <div className="text-cyan-700 uppercase tracking-widest mb-2 text-sm">
-  //         — Discover —
-  //       </div>
-  //       <h2 className="text-3xl md:text-5xl font-semibold mb-4">
-  //         {menuType === "main"
-  //           ? "Menu à la Carte"
-  //           : menuType === "banquet"
-  //           ? "Banquet Menu"
-  //           : "Drinks Menu"}
-  //       </h2>
-  //       <p className="max-w-2xl mx-auto text-gray-600 text-sm md:text-base">
-  //         Explore texture, color, and of course the ultimate tastes with our
-  //         seasonal menu.
-  //       </p>
-  //     </div>
-
-  //     {categories.length > 0 && (
-  //       <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-6">
-  //         {categories.map((category) => (
-  //           <button
-  //             key={category}
-  //             className={`px-4 py-2 text-sm md:text-base uppercase border border-gray-400 rounded-lg transition-all ${
-  //               selectedCategory === category
-  //                 ? "bg-cyan-700 text-white"
-  //                 : "text-gray-800 hover:bg-gray-100"
-  //             }`}
-  //             onClick={() => handleCategoryChange(category)}
-  //           >
-  //             {category}
-  //           </button>
-  //         ))}
-  //       </div>
-  //     )}
-
-  //     <div
-  //       className={`grid grid-cols-1 md:grid-cols-2 gap-8 transition-opacity duration-300 ${
-  //         isFadingOut ? "opacity-0" : "opacity-100"
-  //       }`}
-  //     >
-  //       {menuItems
-  //         .filter((item) => item.category === selectedCategory)
-  //         .map((item) => (
-  //           <article
-  //             key={item.id}
-  //             className="text-base pb-6 border-b border-dotted border-gray-400 flex justify-between items-start w-full"
-  //           >
-  //             <div>
-  //               <h4 className="text-lg font-semibold">{item.name}</h4>
-  //               <p className="text-sm italic text-gray-500">
-  //                 {item.description}
-  //               </p>
-  //             </div>
-  //             {menuType === "drinks" ? (
-  //               <div className="text-right whitespace-nowrap text-sm font-semibold text-gray-800">
-  //                 {item.price50g && <div>50г: {item.price50g} грн</div>}
-  //                 {item.price100g && <div>100г: {item.price100g} грн</div>}
-  //                 {item.priceBottle && <div>Бут: {item.priceBottle} грн</div>}
-  //               </div>
-  //             ) : (
-  //               <span className="text-lg font-bold">{item.price} грн</span>
-  //             )}
-  //           </article>
-  //         ))}
-  //     </div>
-  //   </section>
-  // );
   return loading ? (
     <MenuSkeleton />
   ) : (
@@ -258,18 +191,21 @@ export default function FoodMenu({ menuType }: FoodMenuProps) {
     >
       <div className="text-center mb-8 px-2 sm:px-4">
         <div className="text-cyan-700 uppercase tracking-widest mb-2 text-xs sm:text-sm">
-          — Discover —
+          — Спробуйте —
         </div>
         <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold mb-4">
           {menuType === "main"
-            ? "Menu à la Carte"
+            ? "Спробуйте"
             : menuType === "banquet"
-            ? "Banquet Menu"
-            : "Drinks Menu"}
+            ? "Банкетне меню"
+            : "Напої"}
         </h2>
         <p className="max-w-2xl mx-auto text-gray-600 text-sm sm:text-base px-2">
-          Explore texture, color, and of course the ultimate tastes with our
-          seasonal menu.
+          {menuType === "main"
+            ? "Ми майстерно поєднуємо традиції та сучасність, щоб щодня дарувати вам яскраві смаки, кольори та текстури."
+            : menuType === "banquet"
+            ? menuSheetMap[menuType].tabDescription
+            : menuSheetMap[menuType].tabDescription}
         </p>
       </div>
 

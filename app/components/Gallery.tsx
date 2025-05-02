@@ -4,6 +4,9 @@ const images = [
   "/images/gallery-8.jpg",
   "/images/gallery-6.jpg",
   "/images/gallery-9.jpg",
+  "/images/gallery-10.jpg",
+  "/images/gallery-11.jpg",
+  "/images/gallery-12.jpg",
   "/images/gallery-5.jpg",
   "/images/gallery-3.jpg",
   "/images/gallery-2.jpg",
@@ -16,7 +19,7 @@ export default function Gallery() {
   return (
     <section className="container mx-auto px-4 sm:px-6 py-12">
       <h2 className="text-2xl sm:text-3xl font-semibold mb-8 text-center">
-        Gallery
+        Фотогалерея
       </h2>
 
       {/* Scrollable on mobile, grid on md+ */}
