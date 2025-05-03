@@ -32,7 +32,7 @@ export default function Footer() {
           {/* Hours */}
           <div>
             <h3 className="text-white font-semibold uppercase mb-3">Hours</h3>
-            <p>Понеділок – Вівторок</p>
+            <p>Понеділок – Неділя</p>
             <p>10:00 - 23:00</p>
           </div>
         </div>

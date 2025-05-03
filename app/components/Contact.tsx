@@ -49,7 +49,7 @@ export default function Contact() {
               — Часи роботи —
             </span>
             <p className="text-gray-800 leading-relaxed">
-              Понеділок - Вівторок
+              Понеділок - Неділя
               <br />
               10:00 - 23:00
             </p>
