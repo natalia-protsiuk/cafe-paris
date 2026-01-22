@@ -19,22 +19,21 @@ const Header: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { id: "home", href: "#home", label: "Головна" },
-    { id: "xmas", href: "#xmas", label: "Новорічні корпоративи" },
-    { id: "main", href: "#menu", label: "Меню" },
-    { id: "banquet", href: "#menu", label: "Банкетне меню" },
-    { id: "drinks", href: "#menu", label: "Напої" },
-    { id: "reviews", href: "#reviews", label: "Відгуки" },
-    { id: "gallery", href: "#gallery", label: "Фотогалерея" },
+    { id: "home", href: "/#home", label: "Головна" },
+    { id: "main", href: "/#menu", label: "Меню" },
+    { id: "banquet", href: "/#menu", label: "Банкетне меню" },
+    { id: "drinks", href: "/#menu", label: "Напої" },
+    { id: "reviews", href: "/#reviews", label: "Відгуки" },
+    { id: "gallery", href: "/#gallery", label: "Фотогалерея" },
+    //{ id: "wedding", href: "/wedding", label: "Весілля" },
   ];
 
   return (
     <header
-      className={`${
-        isScrolled
+      className={`${isScrolled
           ? "md:bg-black md:fixed md:shadow-lg"
           : "md:bg-transparent md:absolute"
-      } bg-black top-0 left-0 w-full z-20 transition-all duration-500 ease-in-out`}
+        } bg-black top-0 left-0 w-full z-20 transition-all duration-500 ease-in-out`}
     >
       <div className="container mx-auto flex justify-between items-center py-4 px-4 sm:px-6">
         {/* Logo */}

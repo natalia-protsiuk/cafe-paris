@@ -1,6 +1,12 @@
 import Image from "next/image";
 
 const images = [
+  "/images/tartalete-cafe-paris-mykolaiv..jpg",
+  "/images/appetizers-cafe-paris-mykolaiv..jpg",
+  "/images/black-caviar-cafe-paris-mykolaiv.jpg",
+  "/images/pork-main.jpg",
+  "/images/potato-in-cheese-cafe-paris-mykolaiv..jpg",
+  "/images/ribs-cafe-paris-mykolaiv..jpg",
   "/images/gallery-8.jpg",
   "/images/gallery-6.jpg",
   "/images/gallery-9.jpg",
