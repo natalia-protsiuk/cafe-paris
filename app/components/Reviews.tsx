@@ -3,24 +3,31 @@ import React, { useState, useEffect } from "react";
 
 const reviews = [
   {
+    text: "Вчора святкувала свій день народження, дуже приємна атмосфера, сервіс просто чудовий! Привітні люди, адміністратори найкращі. Їжа дуже смачна! Дуже класне кафе, всім рекомендую, якщо хочете гарно відсвяткувати свята. Емоції залишаються теплими та щасливими.",
+    author: "Владислава",
+  },
+  {
+    text: "Гуляли на банкете у подружки 50 летие, кухня изумительная, все очень вкусно!!! Красивая подача! Приятное обслуживание, девочки молодцы! Рекомендую это кафе для празднования ваших мероприятий",
+    author: "Алена",
+  },
+  {
+    text: "Добрий вечір, хочу написати вам і вашому колективу велике дякую  кухня як завжди просто супер, подачі страв красиві, все дуже смачно. Дівчата приємно обслуговували, ввічливі та привітні. Бажаю вам гарних клієнтів, процвітання та мирного неба над головою.",
+    author: "Iрина",
+  },
+  {
     text: "Кафе 'Париж' – це найпрекрасніший заклад, інтер'єр якого розроблений з любов’ю та душевністю, а страви – надзвичайно смачні...",
-    author: "Marie Smith",
-    position: "The Smiths",
+
   },
   {
     text: "Bce було дуже гарно, затишно i найголовніше - смачно! Подача страв креативна та оригінальна! Дякуємо.",
-    author: "John Doe",
-    position: "Gourmet Critic",
+
   },
   {
     text: "Друзі, рекомендую. Завітайте до ресторану. Bce на найвищому рівні. Є окрема зала, що дуже зручно для тих, хто з дітками. Кухня смачна і якісна. Персонал дуже ввічливий. Нам все дуже сподобалося!",
-    author: "Anna Williams",
-    position: "Food Blogger",
+
   },
   {
     text: "Затишне, казкове місце з прекрасним сервісом. Тому обрала саме ваше кафе для своєї новорічної вечері. У серці залишаться теплі спогади надовго. Дякую. З наступаючим Новим роком і Різдвом усіх. Нехай у Новому році у вас буде багато вдячних клієнтів.",
-    author: "Anna Williams",
-    position: "Food Blogger",
   },
 ];
 
@@ -53,19 +60,18 @@ export default function ReviewsCarousel() {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                index === currentIndex ? "opacity-100" : "opacity-0"
-              } flex flex-col justify-center items-center text-center px-4 sm:px-6`}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentIndex ? "opacity-100" : "opacity-0"
+                } flex flex-col justify-center items-center text-center px-4 sm:px-6`}
             >
               <p className="text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto break-words">
                 “{review.text}”
               </p>
-              {/* <div className="mt-4">
+              {review.author && <div className="mt-4">
                 <div className="font-semibold uppercase text-sm sm:text-base">
                   {review.author}
                 </div>
-                <div className="text-xs text-gray-400">{review.position}</div>
-              </div> */}
+              </div>
+              }
             </div>
           ))}
         </div>
@@ -76,9 +82,8 @@ export default function ReviewsCarousel() {
             <button
               key={index}
               onClick={() => handleDotClick(index)}
-              className={`h-3 w-3 rounded-full transition-colors duration-300 ${
-                index === currentIndex ? "bg-white" : "bg-gray-500"
-              }`}
+              className={`h-3 w-3 rounded-full transition-colors duration-300 ${index === currentIndex ? "bg-white" : "bg-gray-500"
+                }`}
               aria-label={`Go to review ${index + 1}`}
             />
           ))}

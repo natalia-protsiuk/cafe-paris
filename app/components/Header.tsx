@@ -25,14 +25,14 @@ const Header: React.FC = () => {
     { id: "drinks", href: "/#menu", label: "Напої" },
     { id: "reviews", href: "/#reviews", label: "Відгуки" },
     { id: "gallery", href: "/#gallery", label: "Фотогалерея" },
-    //{ id: "wedding", href: "/wedding", label: "Весілля" },
+    { id: "wedding", href: "/wedding", label: "Весілля" },
   ];
 
   return (
     <header
       className={`${isScrolled
-          ? "md:bg-black md:fixed md:shadow-lg"
-          : "md:bg-transparent md:absolute"
+        ? "md:bg-black md:fixed md:shadow-lg"
+        : "md:bg-transparent md:absolute"
         } bg-black top-0 left-0 w-full z-20 transition-all duration-500 ease-in-out`}
     >
       <div className="container mx-auto flex justify-between items-center py-4 px-4 sm:px-6">
