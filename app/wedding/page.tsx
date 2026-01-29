@@ -5,7 +5,7 @@ import Reviews from "../components/Reviews";
 import PricingSection from "../components/PricingSection";
 import { Metadata } from "next";
 export const metadata: Metadata = {
-    title: "Весілля в Миколаєві | Ресторан для весілля Cafe Paris — від 800 грн",
+    title: "Весілля в Миколаєві | Ресторан для весілля Cafe Paris — від 1000 грн",
     description: "Ресторан для весілля в Миколаєві Cafe Paris — банкетне меню від 800 грн з людини, найкраща кухня міста, безкоштовні весільні декорації та індивідуальний підхід.",
 };
 
@@ -85,7 +85,7 @@ export default function WeddingPage() {
                         Пакети та ціни
                     </h2>
                     <div className="max-w-3xl mx-auto space-y-5 text-base sm:text-lg text-gray-700 leading-relaxed">
-                        Ми пропонуємо готові пакети весільного меню, а також індивідуальні варіанти під ваш бюджет від 800 гр.
+                        Ми пропонуємо готові пакети весільного меню, а також індивідуальні варіанти під ваш бюджет від 1000 гр.
                     </div>
                 </div>
                 <PricingSection />

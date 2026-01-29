@@ -4,7 +4,7 @@ const pricingPlans = [
     {
         id: "basic",
         title: "Пакет «Стандарт»",
-        price: 800,
+        price: 1000,
         priceUnit: "грн/гість",
         features: [
             { name: "Салати", value: "3 види" },
@@ -20,7 +20,7 @@ const pricingPlans = [
     {
         id: "standard",
         title: "Пакет «Преміум»",
-        price: 1200,
+        price: 1300,
         priceUnit: "грн/гість",
         features: [
             { name: "Салати", value: "3-4 види" },
