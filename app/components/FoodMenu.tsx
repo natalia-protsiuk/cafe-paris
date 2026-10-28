@@ -48,7 +48,7 @@ const menuSheetMap: Record<
     descriptionIndex: 2,
     priceIndex: 1,
     tabDescription:
-      "Ми маємо великий досвід у складанні меню для банкетів та весіль, яке вразить навіть найвибагливіших гостей. Наші авторські та найсучасніші страви дарують незабутні смакові враження, а ми допоможемо розрахувати кількість страв так, щоб кожен гість залишився задоволений та ситий. Банкети від 600 грн за людину - створіть ідеальне свято разом з нами!",
+      "Ми маємо великий досвід у складанні меню для банкетів та весіль, яке вразить навіть найвибагливіших гостей. Наші авторські та найсучасніші страви дарують незабутні смакові враження, а ми допоможемо розрахувати кількість страв так, щоб кожен гість залишився задоволений та ситий. Банкети від 800 грн за людину - створіть ідеальне свято разом з нами!",
   },
   drinks: {
     tab: "drinks menu",
@@ -85,10 +85,10 @@ export default function FoodMenu({ menuType }: FoodMenuProps) {
 
       const fetchConfig = async (
         SHEET_ID: string,
-        API_KEY: string
+        API_KEY: string,
       ): Promise<Record<string, string>> => {
         const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(
-          `${CONFIG_TAB}!${CONFIG_RANGE}`
+          `${CONFIG_TAB}!${CONFIG_RANGE}`,
         )}?key=${API_KEY}`;
 
         const res = await fetch(url);
@@ -108,8 +108,8 @@ export default function FoodMenu({ menuType }: FoodMenuProps) {
         const [menuRes, config] = await Promise.all([
           fetch(
             `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(
-              `${sheetInfo.tab}!${sheetInfo.range}`
-            )}?key=${API_KEY}`
+              `${sheetInfo.tab}!${sheetInfo.range}`,
+            )}?key=${API_KEY}`,
           ).then((res) => res.json()),
           fetchConfig(SHEET_ID, API_KEY!),
         ]);
@@ -147,7 +147,7 @@ export default function FoodMenu({ menuType }: FoodMenuProps) {
         setMenuItems(formattedData);
 
         const uniqueCategories: string[] = Array.from(
-          new Set(formattedData.map((item) => item.category))
+          new Set(formattedData.map((item) => item.category)),
         );
 
         const rawOrder = config[sheetInfo.orderKey] || "";
@@ -197,15 +197,15 @@ export default function FoodMenu({ menuType }: FoodMenuProps) {
           {menuType === "main"
             ? "Спробуйте"
             : menuType === "banquet"
-            ? "Банкетне меню"
-            : "Напої"}
+              ? "Банкетне меню"
+              : "Напої"}
         </h2>
         <p className="max-w-2xl mx-auto text-gray-600 text-sm sm:text-base px-2">
           {menuType === "main"
             ? "Ми майстерно поєднуємо традиції та сучасність, щоб щодня дарувати вам яскраві смаки, кольори та текстури."
             : menuType === "banquet"
-            ? menuSheetMap[menuType].tabDescription
-            : menuSheetMap[menuType].tabDescription}
+              ? menuSheetMap[menuType].tabDescription
+              : menuSheetMap[menuType].tabDescription}
         </p>
       </div>
 
